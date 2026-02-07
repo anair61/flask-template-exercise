@@ -6,11 +6,11 @@ bootstrap = Bootstrap5(app)
 
 @app.route("/")
 def home():
-    return render_template("home.html")
+    return render_template("home.html", page_title="Home")
 
 @app.route("/about")
 def about():
-    return render_template("about.html")
+    return render_template("about.html", page_title="About")
 
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
@@ -23,7 +23,7 @@ def contact():
         email = request.form.get("email", "").strip()
         submitted = True
 
-    return render_template("contact.html", submitted=submitted, name=name, email=email)
-
+    return render_template("contact.html", page_title="Contact", submitted=submitted, name=name, email=email)
+ 
 if __name__ == "__main__":
     app.run(debug=True)
