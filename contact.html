@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Contact{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="col-md-6">
+    <h1>Contact</h1>
+    <p class="lead">Send us your name and email.</p>
+
+    <form method="POST" class="card p-4">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input id="name" name="name" type="text" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input id="email" name="email" type="email" class="form-control" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+  <div class="col-md-6">
+    {% if submitted %}
+      <div class="alert alert-success mt-4 mt-md-0">
+        <h5 class="alert-heading">Form submitted</h5>
+        <p class="mb-1"><strong>Name:</strong> {{ name }}</p>
+        <p class="mb-0"><strong>Email:</strong> {{ email }}</p>
+      </div>
+    {% else %}
+      <div class="alert alert-secondary mt-4 mt-md-0">
+        Fill out the form and submit to see your input displayed.
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
